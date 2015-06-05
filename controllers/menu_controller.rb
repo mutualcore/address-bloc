@@ -70,12 +70,19 @@ class MenuController
         
         system "clear"
         puts "New entry created"
-    end
+     end
     
-    def delete_entry(entry)
+     def delete_entry(entry)
      @address_book.entries.delete(entry)
      puts "#{entry.name} has been deleted"
-   end
+     end
+
+     def demolish
+        @address_book.entries.each do |entry|
+            entry.delete_entry
+        end
+        puts "All entries deleted"
+     end
 
     def edit_entry(entry)
          print "Updated name: "
